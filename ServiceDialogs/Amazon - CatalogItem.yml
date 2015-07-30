@@ -1,11 +1,11 @@
 ---
 - description: 
   buttons: submit,cancel
-  label: Amazon - CatalogItem - Wordpress Server
+  label: Amazon - CatalogItem
   dialog_tabs:
   - description: 
     display: edit
-    label: Wordpress Server
+    label: Amazon Server
     display_method: 
     display_method_options: 
     position: 0
@@ -40,6 +40,13 @@
         validator_type: 
         validator_rule: 
         reconfigurable: 
+        dynamic: 
+        show_refresh_button: 
+        load_values_on_init: 
+        read_only: 
+        auto_refresh: 
+        trigger_auto_refresh: 
+        resource_action_fqname: ''
       - name: service_description
         description: 
         type: DialogFieldTextAreaBox
@@ -62,29 +69,32 @@
         validator_type: 
         validator_rule: 
         reconfigurable: 
+        dynamic: 
+        show_refresh_button: 
+        load_values_on_init: 
+        read_only: 
+        auto_refresh: 
+        trigger_auto_refresh: 
+        resource_action_fqname: ''
       - name: tag_0_environment
         description: 
-        type: DialogFieldRadioButton
+        type: DialogFieldTagControl
         data_type: string
         notes: 
         notes_display: 
         display: edit
         display_method: 
         display_method_options: {}
-        required: true
+        required: false
         required_method: 
         required_method_options: {}
-        default_value: test
-        values:
-        - - dev
-          - Development
-        - - prod
-          - Production
-        - - test
-          - Test
+        default_value: 
+        values: 
         values_method: 
         values_method_options: {}
         options:
+          :category_id: '20'
+          :force_single_value: true
           :sort_by: :description
           :sort_order: :ascending
         label: Environment *
@@ -92,39 +102,20 @@
         validator_type: 
         validator_rule: 
         reconfigurable: 
+        dynamic: false
+        show_refresh_button: 
+        load_values_on_init: 
+        read_only: false
+        auto_refresh: 
+        trigger_auto_refresh: 
+        resource_action_fqname: ''
     - description: 
       display: edit
-      label: Instance Information
+      label: VM Information
       display_method: 
       display_method_options: 
       position: 1
       dialog_fields:
-      - name: tag_1_role
-        description: 
-        type: DialogFieldDropDownList
-        data_type: string
-        notes: 
-        notes_display: 
-        display: edit
-        display_method: 
-        display_method_options: {}
-        required: true
-        required_method: 
-        required_method_options: {}
-        default_value: lamp
-        values:
-        - - lamp
-          - LAMP Server
-        values_method: 
-        values_method_options: {}
-        options:
-          :sort_by: :description
-          :sort_order: :ascending
-        label: Role *
-        position: 0
-        validator_type: 
-        validator_rule: 
-        reconfigurable: 
       - name: option_1_vm_name
         description: 
         type: DialogFieldTextBox
@@ -143,8 +134,15 @@
         values_method_options: {}
         options:
           :protected: false
-        label: Name
-        position: 1
-        validator_type: 
-        validator_rule: 
-        reconfigurable:
+        label: VM Name
+        position: 0
+        validator_type: regex
+        validator_rule: "^[a-zA-Z0-9-]{0,12}$"
+        reconfigurable: 
+        dynamic: 
+        show_refresh_button: 
+        load_values_on_init: 
+        read_only: 
+        auto_refresh: 
+        trigger_auto_refresh: 
+        resource_action_fqname: ''
