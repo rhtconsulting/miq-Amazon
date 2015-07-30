@@ -8,7 +8,7 @@ install_cmd() {
     bin/rake "rhconsulting:miq_ae_datastore:import[${DOMAIN}, ${TOPDIR}/Automate]"
 
     echo "Importing Service Dialogs"
-    bin/rake rhconsulting:dialogs:import[${DOMAIN}/ServiceDialogs]
+    bin/rake rhconsulting:dialogs:import[${TOPDIR}/ServiceDialogs]
 }
 
 if [ -d ${TOPDIR}/Automate/${DOMAIN} ] ; then
