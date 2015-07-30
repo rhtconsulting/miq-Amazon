@@ -1,0 +1,16 @@
+---
+object_type: instance
+version: 1.0
+object:
+  attributes:
+    display_name: 
+    name: DeployPublicAMI
+    inherits: 
+    description: 
+  fields:
+  - us_east_1:
+      value: ami-5b9e6b30
+  - us_west_1:
+      value: ami-876983c3
+  - method1:
+      value: deployPublicAMI
